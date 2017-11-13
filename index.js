@@ -1,50 +1,67 @@
 'use strict'
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
-const { graphql, buildSchema } = require('graphql');
+const { 
+  GraphQLID,
+  GraphQLBoolean,
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLList,
+  GraphQLInt
+} = require('graphql');
 
 const PORT = process.env.PORT || 3000;
 const server = express();
 
-const schema = buildSchema(`
-  type Video {
-    id: ID,
-    title: String,
-    duration: Int,
-    watched: Boolean
+const videoType = new GraphQLObjectType({
+  name: "Video",
+  description: "A video on Egghead.io",
+  fields: {
+    id: {
+      type: GraphQLID,
+      description: "The Id of video"
+    },
+    title: {
+      type: GraphQLString,
+      description: "The title of video"
+    },
+    duration: {
+      type: GraphQLInt,
+      description: "The duration of video"
+    },
+    watched: {
+      type: GraphQLBoolean,
+      description: "Whether or not viewer has watched the video"
+    }
   }
+})
 
-  type Query {
-    video: Video
-    videos: [Video]
+const queryType =  new GraphQLObjectType({
+  name: "QueryType",
+  description: "The root query type",
+  fields:{
+    video: {
+      type: videoType,
+      resolve: () => new Promise((resolve) => {
+        resolve({
+          id: '1',
+          title: 'bar',
+          duration: 10,
+          watched: false
+        })
+      })
+    }
   }
-`);
+})
 
-const resolvers = {
-  video: () => ({
-    id: '1',
-    title: 'bar',
-    duration: 10,
-    watched: false
-  }),
-  videos: () => ([{
-    id: '1',
-    title: 'bar',
-    duration: 10,
-    watched: false
-  },
-  {
-    id: '1',
-    title: 'bar',
-    duration: 10,
-    watched: false
-  }])
-};
+const schema = new GraphQLSchema({
+  query: queryType
+})
 
 server.use('/graphql', graphqlHTTP({
   schema,
-  graphiql: true,
-  rootValue: resolvers
+  graphiql: true
 }))
 
 server.listen(PORT, () => {
