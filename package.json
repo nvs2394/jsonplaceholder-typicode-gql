@@ -5,7 +5,13 @@
   "repository": "git@github.com:nvs2394/todo-graphql.git",
   "author": "Son Nguyen <nvs2394@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
     "graphql": "^0.11.7"
   }
 }
