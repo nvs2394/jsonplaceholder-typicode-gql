@@ -10,6 +10,7 @@ const {
   GraphQLList,
   GraphQLInt
 } = require('graphql');
+const { getVideoById } = require('./src/data/index.js');
 
 const PORT = process.env.PORT || 3000;
 const server = express();
@@ -43,14 +44,15 @@ const queryType =  new GraphQLObjectType({
   fields:{
     video: {
       type: videoType,
-      resolve: () => new Promise((resolve) => {
-        resolve({
-          id: '1',
-          title: 'bar',
-          duration: 10,
-          watched: false
-        })
-      })
+      args: {
+        id: {
+          type: GraphQLID,
+          description: "The id of video"
+        }
+      },
+      resolve: (_, args) => {
+        return getVideoById(args.id)
+      }
     }
   }
 })
