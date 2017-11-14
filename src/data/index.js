@@ -7,6 +7,12 @@ const video = {
 
 const videos = [video, {...video,id: '2'}]
 
+const createVideo = ({ ...rest}) => {
+  const video = {...rest};
+  videos.push(video);
+  return video;
+}
+
 const getVideos = () => new Promise((resolve) => resolve(videos))
 
 const getVideoById = (id) => new Promise((resolve) => {
@@ -16,5 +22,6 @@ const getVideoById = (id) => new Promise((resolve) => {
 
 module.exports = {
   getVideoById,
-  getVideos
+  getVideos,
+  createVideo
 }
