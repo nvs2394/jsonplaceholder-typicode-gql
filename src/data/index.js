@@ -14,7 +14,6 @@ const createVideo = ({ id, title, duration, watched }) => {
     duration,
     watched
   };
-  console.log(video)
   videos.push(video);
   return video;
 }
