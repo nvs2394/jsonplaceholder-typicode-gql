@@ -7,11 +7,14 @@ const video = {
 
 const videos = [video, {...video,id: '2'}]
 
+const getVideos = () => new Promise((resolve) => resolve(videos))
+
 const getVideoById = (id) => new Promise((resolve) => {
   const [video] = videos.filter((video) => video.id === id);
   resolve(video);
 })
 
 module.exports = {
-  getVideoById
+  getVideoById,
+  getVideos
 }
