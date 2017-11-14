@@ -7,8 +7,14 @@ const video = {
 
 const videos = [video, {...video,id: '2'}]
 
-const createVideo = ({ ...rest}) => {
-  const video = {...rest};
+const createVideo = ({ id, title, duration, watched }) => {
+  const video = {
+    id,
+    title,
+    duration,
+    watched
+  };
+  console.log(video)
   videos.push(video);
   return video;
 }

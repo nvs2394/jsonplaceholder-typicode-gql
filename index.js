@@ -9,7 +9,8 @@ const {
   GraphQLString,
   GraphQLList,
   GraphQLInt,
-  GraphQLNonNull
+  GraphQLNonNull, 
+  GraphQLInputObjectType
 } = require('graphql');
 
 const { getVideoById, getVideos, createVideo } = require('./src/data/index.js');
@@ -65,6 +66,28 @@ const queryType =  new GraphQLObjectType({
   }
 })
 
+const videoInputType = new GraphQLInputObjectType({
+  name: "InputType",
+  fields: {
+    id: {
+      type: new GraphQLNonNull(GraphQLID),
+      description: "The id of video"
+    },
+    title: {
+      type: GraphQLString,
+      description: "The title of video"
+    },
+    duration: {
+      type: GraphQLInt,
+      description: "The duration of video"
+    },
+    watched: {
+      type: GraphQLBoolean,
+      description: "Whether or not viewer has watched the video"
+    }
+  }
+})
+
 const mutationType = new GraphQLObjectType({
   name: "MutationType",
   description: "The root mutation type",
@@ -72,25 +95,12 @@ const mutationType = new GraphQLObjectType({
     createVideo: {
       type: videoType,
       args: {
-        id: {
-          type: new GraphQLNonNull(GraphQLID),
-          description: "The id of video"
-        },
-        title: {
-          type: GraphQLString,
-          description: "The title of video"
-        },
-        duration: {
-          type: GraphQLInt,
-          description: "The duration of video"
-        },
-        watched: {
-          type: GraphQLBoolean,
-          description: "Whether or not viewer has watched the video"
+        video: {
+          type: new GraphQLNonNull(videoInputType)
         }
       },
       resolve: (_, args) => {
-        return createVideo({...args})
+        return createVideo(args.video)
       }
     }
   }
