@@ -1,0 +1,8 @@
+module.exports = [`
+  type Todo {
+    id: String!
+    userId: String!
+    title: String!
+    completed: Boolean!
+  }
+`];

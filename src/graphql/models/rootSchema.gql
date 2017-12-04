@@ -1,0 +1,9 @@
+module.exports = [`
+    type Query {
+        user(id: ID!): User
+    }
+
+    schema {
+        query: Query
+    }
+`]

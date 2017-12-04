@@ -6,12 +6,12 @@ module.exports = [`
     avatar: String
     email: String!
     address: AddressType
+    geo: GeoLocationType
   }
 
   type AddressType {
     street: String
     city: String
-    geo: GeoLocationType
   }
 
   type GeoLocationType {
