@@ -1,5 +1,7 @@
 # jsonplaceholder-typicode
-Convert RestAPI to GraphQL from https://jsonplaceholder.typicode.com
+Convert RestAPI to GraphQL from https://jsonplaceholder.typicode.com 
+
+to https://jsonplaceholder-typicode.herokuapp.com/graphiql
 
 yarn install
 
