@@ -1,4 +1,4 @@
-# todo-graphql
+# jsonplaceholder-typicode
 Convert RestAPI to GraphQL from https://jsonplaceholder.typicode.com
 
 yarn install
