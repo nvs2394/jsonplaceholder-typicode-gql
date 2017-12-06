@@ -6,7 +6,7 @@
   "author": "Son Nguyen <nvs2394@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./src/index.js",
+    "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
   "dependencies": {

@@ -1,7 +1,8 @@
-const { User } = require('./User')
+const { User, UserList } = require('./User')
 
 const models = {
-  User
+  User,
+  UserList
 };
 
 module.exports = {

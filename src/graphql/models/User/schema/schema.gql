@@ -18,4 +18,9 @@ module.exports = [`
     lat: String
     lng: String
   }
+
+  type UserList {
+    total: Int
+    items: [ User ]
+  }
 `];
