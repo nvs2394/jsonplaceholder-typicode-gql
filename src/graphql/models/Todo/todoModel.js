@@ -1,4 +1,4 @@
-const todoMock = require('./mock');
+const { HTTPConnector } = require('../../connectors');
 
 class Todo {
   constructor(data) {
@@ -8,9 +8,10 @@ class Todo {
     this.completed = data.completed;
   } 
 
-  get(args, ctx) {
-    // get from http get /todo
-    const todo = todoMock[0];
+  static async gen(args, ctx) {
+    const todo = await HTTPConnector.get(`/todos/${args.id}`);
     return new Todo(todo);
   }
 }
+
+module.exports = Todo;

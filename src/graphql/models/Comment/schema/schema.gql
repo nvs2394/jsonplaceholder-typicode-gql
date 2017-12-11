@@ -1,0 +1,10 @@
+module.exports = [`
+  type Comment {
+    albumId: String!,
+    postId: String!,
+    id: String!,
+    name: String,
+    email: String,
+    body: String!
+  }
+`];

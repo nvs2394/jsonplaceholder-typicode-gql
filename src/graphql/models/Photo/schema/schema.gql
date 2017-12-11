@@ -1,21 +1,9 @@
 module.exports = [`
-  type User {
-    id: String!
-    name: String
-    username: String!
-    avatar: String
-    email: String!
-    address: AddressType
-    geo: GeoLocationType
-  }
-
-  type AddressType {
-    street: String
-    city: String
-  }
-
-  type GeoLocationType {
-    lat: String
-    lng: String
+  type Photo {
+    albumId: String!,
+    id: String!,
+    title: String,
+    url: String!,
+    thumbnailUrl: String
   }
 `];

@@ -1,14 +1,14 @@
 'use strict';
-const userList = require('./userListModel'); 
+const PhotoList = require('./userListModel'); 
 const user = require('./userModel'); 
 
-const userSchema = require('./schema');
+const photoSchema = require('./schema');
 const { resolvers } = require('./resolvers');
-const userResolver = resolvers;
+const photoResolver = resolvers;
 
 module.exports = {
-  userSchema,
-  userResolver,
-  userList,
-  user
+  photoSchema,
+  photoResolver,
+  PhotoList,
+  Photo
 }
