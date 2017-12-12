@@ -3,6 +3,7 @@ module.exports = [`
         user(id: ID!): User
         users: UserList
         todo(id: ID!): Todo
+        post(id: ID!): Post
     }
 
     schema {
