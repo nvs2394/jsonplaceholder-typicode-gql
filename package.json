@@ -19,7 +19,6 @@
     "graphql-tools": "^2.8.0",
     "hapi": "^16.5.2",
     "lodash": "^4.17.4",
-    "nodemon": "^1.12.5",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "request-promise-native": "^1.0.5",
