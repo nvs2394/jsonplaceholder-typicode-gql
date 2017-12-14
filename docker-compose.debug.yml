@@ -1,8 +1,8 @@
 version: '2.1'
 
 services:
-  todo-graphql:
-    image: todo-graphql
+  jsonplaceholder-typicode-gql:
+    image: jsonplaceholder-typicode-gql
     build: .
     environment:
       NODE_ENV: development
