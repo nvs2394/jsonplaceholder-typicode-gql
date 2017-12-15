@@ -1,63 +1,21 @@
 const hapi = require('hapi');
 
-const { graphqlHapi, graphiqlHapi } = require('graphql-server-hapi');
-const { makeExecutableSchema } = require('graphql-tools');
-
 const Config = require('config');
+const plugins = require('./plugin');
+async function StartServer () {
+  const server = new hapi.Server({
+    port: Config.get('App.port')
+  });
 
-const { typeDefs, resolvers } = require('./graphql');
-const { formatError } = require('./graphql/errors');
-const { models, connectors } = require('./graphql/models');
+  await server.register(plugins);
 
-const executableSchema = makeExecutableSchema({ typeDefs, resolvers });
-const server = new hapi.Server();
-
-server.connection({
-  port: Config.get('App.port')
-});
-
-const plugins = [
-  {
-    register: graphqlHapi,
-    options: {
-      path: '/graphql',
-      graphqlOptions: (request) => {
-        return {
-          context: {
-            models,
-          },
-          schema: executableSchema,
-          debug: true,
-          tracing: true
-        };
-      },
-      route: {
-        cors: {
-          origin: ['*'],
-        },
-        auth: false
-      }
-    }
-  },
-  {
-    register: graphiqlHapi,
-    options: {
-      path: '/graphiql',
-      route: {
-        auth: false
-      },
-      graphiqlOptions: {
-        endpointURL: '/graphql'
-      }
-    }
+  try {
+    await server.start();
+  } catch (err) {
+    console.log(`Error while starting server: ${err.message}`);
   }
-];
 
-server.register(plugins, (err) => {
-  if (err) { console.error('error loading plugin ', err); }
-});
-
-/**
- * Export server, call with server.start
- */
-module.exports = server;
+  console.log(`Server running at: ${server.info.uri}`);
+}
+// StartServer();
+module.exports = StartServer;
