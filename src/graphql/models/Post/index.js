@@ -1,6 +1,6 @@
 'use strict';
-const PostList = require('./PostListModel'); 
-const Post = require('./PostModel'); 
+const PostList = require('./postListModel'); 
+const Post = require('./postModel'); 
 
 const postSchema = require('./schema');
 const { resolvers } = require('./resolvers');
