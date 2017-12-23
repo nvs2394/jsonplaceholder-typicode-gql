@@ -14,6 +14,12 @@ class User {
     const user = await HTTPConnector.get(`/users/${args.id}`);
     return new User(user);
   }
+
+  static async create(args, ctx) {
+    const { input } = args;
+    const user = await HTTPConnector.post(`/users/${args.id}`, input);
+    return new User(user);
+  }
 }
 
 module.exports = User;
