@@ -10,6 +10,11 @@ class HTTPConnecttor {
     return JSON.parse(body);
   };
 
+  static async post(path, data){
+    const urlString = `${config.get('MS.url')}${path}`
+    const body = await request.post(urlString).form(data);
+    return JSON.parse(body);
+  };
 }
 
 module.exports = HTTPConnecttor;
