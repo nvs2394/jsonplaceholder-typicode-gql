@@ -1,3 +1,23 @@
 module.exports = [`
+
+  input CreateUserInput {
+    id: String!
+    name: String
+    username: String!
+    avatar: String
+    email: String!
+    address: AddressTypeInput
+  }
+
+  input AddressTypeInput {
+    street: String
+    city: String
+    geo: GeoLocationTypeInput
+  }
+
+  input GeoLocationTypeInput {
+    lat: String
+    lng: String
+  }
   
 `];

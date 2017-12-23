@@ -23,4 +23,8 @@ module.exports = [`
     total: Int
     items: [ User ]
   }
+
+  type CreateUserResult {
+    user: User!
+  }
 `];

@@ -6,7 +6,12 @@ module.exports = [`
         post(id: ID!): Post
     }
 
+    type Mutation {
+        createNewUser: CreateUser!
+    }
+
     schema {
         query: Query
+        mutation: Mutation
     }
-`]
+`];

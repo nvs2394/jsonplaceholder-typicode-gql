@@ -1,3 +1,7 @@
 module.exports = [`
+
+  type CreateUser {
+    createNewUser(input: CreateUserInput): CreateUserResult!
+  }
   
 `];
