@@ -1,6 +1,6 @@
 module.exports = [`
   type Comment {
-    albumId: String!,
+    albumId: String,
     postId: String!,
     id: String!,
     name: String,

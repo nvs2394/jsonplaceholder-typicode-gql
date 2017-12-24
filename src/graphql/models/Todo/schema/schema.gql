@@ -5,4 +5,8 @@ module.exports = [`
     title: String!
     completed: Boolean!
   }
+
+  type CreateTodoResult {
+    todo: Todo!
+  }
 `];

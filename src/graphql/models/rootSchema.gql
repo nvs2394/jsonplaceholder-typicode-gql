@@ -4,6 +4,8 @@ module.exports = [`
         users: UserList
         todo(id: ID!): Todo
         post(id: ID!): Post
+        photo(id: ID!): Photo
+        comment(id: ID!): Comment
     }
 
     type Mutation {

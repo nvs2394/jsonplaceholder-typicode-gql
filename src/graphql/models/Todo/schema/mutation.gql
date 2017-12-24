@@ -1,3 +1,7 @@
 module.exports = [`
-  
+
+  type CreateTodo {
+    createTodo(input: CreateTodoInput): CreateTodoResult!
+  }
+
 `];

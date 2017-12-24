@@ -1,6 +1,6 @@
 'use strict';
-const PhotoList = require('./userListModel'); 
-const user = require('./userModel'); 
+const PhotoList = require('./photoListModel'); 
+const Photo = require('./photoModel'); 
 
 const photoSchema = require('./schema');
 const { resolvers } = require('./resolvers');

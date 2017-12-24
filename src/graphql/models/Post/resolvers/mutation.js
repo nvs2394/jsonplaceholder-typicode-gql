@@ -1,9 +1,9 @@
-// 'use strict';
+'use strict';
 
-// const createUser = () => {
+const createUser = () => {
 
-// };
+};
 
-// module.exports = {
-//   createUser
-// };
+module.exports = {
+  createUser
+};

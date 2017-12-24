@@ -1,11 +1,8 @@
 'use strict';
-const Users = require('../mock');
 const { combineResolvers } = require('graphql-resolvers');
 
-const user = (_, args, ctx) => {
-  return Users.filter((user) => user.id === args.id)[0];
-};
+const photo = (_, args, ctx) => ctx.models.Photo.gen(args, ctx);
 
 module.exports = {
-  user: combineResolvers(user)
+  photo: combineResolvers(photo)
 };

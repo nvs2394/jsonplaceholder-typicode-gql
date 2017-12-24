@@ -1,6 +1,6 @@
 module.exports = [`
   type Photo {
-    albumId: String!,
+    albumId: String,
     id: String!,
     title: String,
     url: String!,
