@@ -6,4 +6,9 @@ module.exports = [`
     url: String!,
     thumbnailUrl: String
   }
+
+  type PhotoList {
+    total: Int
+    items: [ Photo ]
+  }
 `];

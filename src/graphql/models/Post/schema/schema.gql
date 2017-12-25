@@ -5,4 +5,9 @@ module.exports = [`
     title: String!,
     body: String!
   }
+
+  type PostList {
+    total: Int
+    items: [ Post ]
+  }
 `];

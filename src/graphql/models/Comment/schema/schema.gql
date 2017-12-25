@@ -7,4 +7,10 @@ module.exports = [`
     email: String,
     body: String!
   }
+
+  type CommentList {
+    total: Int
+    items: [ Comment ]
+  }
+  
 `];

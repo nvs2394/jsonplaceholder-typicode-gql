@@ -6,6 +6,11 @@ module.exports = [`
     completed: Boolean!
   }
 
+  type TodoList {
+    total: Int
+    items: [ Todo ]
+  }
+
   type CreateTodoResult {
     todo: Todo!
   }

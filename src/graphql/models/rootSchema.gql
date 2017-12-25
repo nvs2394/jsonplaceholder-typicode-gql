@@ -3,9 +3,13 @@ module.exports = [`
         user(id: ID!): User
         users: UserList
         todo(id: ID!): Todo
+        todos: TodoList
         post(id: ID!): Post
+        posts: PostList
         photo(id: ID!): Photo
+        photos: PhotoList
         comment(id: ID!): Comment
+        comments: CommentList
     }
 
     type Mutation {
