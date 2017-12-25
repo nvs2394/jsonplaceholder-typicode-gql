@@ -1,13 +1,20 @@
 const { HTTPConnector } = require('../../connectors');
 
 class UserList {
+
   constructor(data) {
-    const { items } = data;
+    const { items, total } = data;
+    this.total = total;
     this.items = items;
   }
+
   static async gen() {
     const users = await HTTPConnector.get(`/users`);
-    return users;
+    const userList = {
+      items: users,
+      total: users.length
+    }
+    return new UserList(userList)
   }
 }
 
