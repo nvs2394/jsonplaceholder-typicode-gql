@@ -1,17 +1,59 @@
 # jsonplaceholder-typicode-gql
-
-### Run local
 Convert RestAPI to GraphQL from https://jsonplaceholder.typicode.com 
 
-to https://jsonplaceholder-typicode.herokuapp.com/graphiql
+To https://jsonplaceholder-typicode.herokuapp.com/graphiql
 
-npm install
+### How to run local
 
-start: `npm run  start`
-start dev with nodemon
+Install package: `npm install`
 
-`npm install nodemon` then  `yarn dev`
+Start: `npm run start`
+
+Start with nodemon (auto reload server): `npm run  dev`
 
 ### Run with Docker
 
-docker-compose up
+Run : `docker-compose up`
+
+### Structure
+  ```
+  config // config env for project
+    default.js //default config env 
+    development
+    production
+  src
+    graphql
+      connectors #
+        httpConnecttor //defind HTTPConnecttor call to ms-service
+        index.js
+      errors // To 
+        apolloError.js //Show apollo error
+        formatError.js
+        index.js
+        microserviceError.js //Show error when call to ms-service
+      models
+        ...#You can add more Models look like User
+        User
+          resolvers //Resolver for schema
+            index.js
+            mutation.js
+            queries.js
+            type.js
+          schema
+            index.js
+            schema.gql //Defined schema type
+            mutation.gql //Defined Mutation type
+            input.gql // Defined Input type
+          index.js // Exports resolvers, schema, userList, userModel.js // Defind User class
+          userList.js // Defind UserList class
+        index.js //Import all models of GraphQL
+        root.js //Export rootSchema
+        rootSchema.gql Defined all Mutation & Query
+      utils
+      index.js
+    index.js
+    plugin.js
+    server.js
+  Dockerfile
+  docker-compose.yml
+  ```
