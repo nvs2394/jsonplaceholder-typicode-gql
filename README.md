@@ -1,4 +1,4 @@
-# jsonplaceholder-typicode-gql
+# Jsonplaceholder-typicode-gql
 Convert RestAPI to GraphQL from https://jsonplaceholder.typicode.com 
 
 To https://jsonplaceholder-typicode.herokuapp.com/graphiql
@@ -14,6 +14,55 @@ Start with nodemon (auto reload server): `npm run  dev`
 ### Run with Docker
 
 Run : `docker-compose up`
+
+### How to query &  mutation
+  ##### Query:
+  ```
+  List:
+    query usersQuery {
+      photos{
+        total
+        items{
+          id
+          url
+        }
+      } 
+    }
+
+  Get detail
+    query userQuery {
+      user(id: 1) {
+        id
+        name
+        username
+        email
+      }
+    }
+
+  ```
+  ##### Mutation:
+  ```
+  mutation addUser($name: String, $username: String!, $email: String!, $avatar: String){
+  createNewUser(input:{
+   	name: $name,
+    username: $username,
+    avatar: $avatar,
+    email: $email
+  }){
+    user{
+      id
+    }
+  }
+  }
+
+  varialbes:
+  {
+    "name": "Son",
+    "username": "sondeptrai",
+    "email": "son@test.com",
+    "avatar": "http://avatar.com/img.png"
+  }
+  ```
 
 ### Structure
   ```

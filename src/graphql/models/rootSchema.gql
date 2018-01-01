@@ -13,7 +13,7 @@ module.exports = [`
     }
 
     type Mutation {
-        createNewUser: CreateUser!
+        hello: String!
     }
 
     schema {
