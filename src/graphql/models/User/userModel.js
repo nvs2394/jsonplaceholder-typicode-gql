@@ -11,14 +11,22 @@ class User {
   } 
 
   static async gen(args, ctx) {
-    const user = await HTTPConnector.get(`/users/${args.id}`);
-    return new User(user);
+    try {
+      const user = await HTTPConnector.get(`/users/${args.id}`);
+      return new User(user);
+    } catch (error) {
+      throw Error(error); 
+    }
   }
 
   static async create(args, ctx) {
-    const { input } = args;
-    const user = await HTTPConnector.post(`/users/${args.id}`, input);
-    return new User(user);
+    try {
+      const { input } = args;
+      const user = await HTTPConnector.post('/users', input);
+      return new User(user);
+    } catch (error) {
+      throw Error(error); 
+    }
   }
 }
 

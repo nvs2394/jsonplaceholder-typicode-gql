@@ -1,7 +1,6 @@
 module.exports = [`
 
   input CreateUserInput {
-    id: String!
     name: String
     username: String!
     avatar: String
