@@ -12,9 +12,16 @@ const posts = (user, args, ctx) => {
   }, ctx);
 }
 
+const todos = (user, args, ctx) => {
+  return ctx.models.Todo.getTodoByUserId({
+    userId: user.id
+  }, ctx);
+}
+
 const typeResolvers = {
   User: {
-    posts
+    posts,
+    todos
   }
 }
 

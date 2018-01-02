@@ -22,6 +22,13 @@ class Todo {
       throw Error(error); 
     }
   }
+
+  static async getTodoByUserId(args, ctx) {
+    const { userId } =  args;
+    const todos = await HTTPConnector.get(`/users/${userId}/todos`);
+    todos.map((todo) => new Todo(todo));
+    return todos;
+  }
 }
 
 module.exports = Todo;
