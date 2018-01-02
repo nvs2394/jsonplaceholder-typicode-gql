@@ -5,7 +5,9 @@ module.exports = [`
     username: String!
     avatar: String
     email: String!
-    address: AddressType
+    address: AddressType,
+    posts: [ Post ],
+    todos: [ Todo ]
   }
 
   type AddressType {
