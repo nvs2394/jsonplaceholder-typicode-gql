@@ -1,6 +1,5 @@
 module.exports = [`
   input CreateTodoInput {
-    id: String!
     userId: String!
     title: String!
     completed: Boolean!

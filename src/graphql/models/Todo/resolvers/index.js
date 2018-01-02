@@ -1,9 +1,11 @@
 'use strict';
 
 const Query = require('./queries');
+const Mutation = require('./mutation');
 
 const resolvers = {
-  Query
+  Query,
+  Mutation
 };
 
 module.exports = {
