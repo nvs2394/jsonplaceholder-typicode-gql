@@ -2,10 +2,12 @@
 
 const Query = require('./queries');
 const Mutation = require('./mutation');
+const TypeResolvers = require('./types');
 
 const resolvers = {
   Query,
-  Mutation
+  Mutation,
+  ...TypeResolvers
 };
 
 module.exports = {
