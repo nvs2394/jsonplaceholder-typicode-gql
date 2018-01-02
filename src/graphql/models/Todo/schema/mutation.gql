@@ -1,7 +1,7 @@
 module.exports = [`
 
-  type CreateTodo {
-    createTodo(input: CreateTodoInput): CreateTodoResult!
+  extend type Mutation {
+    createTodo(input: CreateTodoInput): Todo!
   }
 
 `];
