@@ -3,6 +3,18 @@ Convert RestAPI to GraphQL from https://jsonplaceholder.typicode.com
 
 To https://jsonplaceholder-typicode.herokuapp.com/graphiql
 
+### GraphQL layer that integrates existing systems
+  ```
+  Another major use case for GraphQL is the integration of multiple existing systems behind a single, coherent GraphQL API. This is particularly compelling for companies with legacy infrastructures and many different APIs that have grown over years and now impose a high maintenance burden. One major problem with these legacy systems is that they make it practically impossible to build innovative products that need access to multiple systems.
+
+  In that context, GraphQL can be used to unify these existing systems and hide their complexity behind a nice GraphQL API. This way, new client applications can be developed that simply talk to the GraphQL server to fetch the data they need. The GraphQL server is then responsible for fetching the data from the existing systems and package it up in the GraphQL response format.
+
+  Just like in the previous architecture where the GraphQL server didn’t care about the type of database being used, this time it doesn’t care about the data sources that it needs to fetch the data that’s needed to resolve a query.
+  ```
+  Source from: https://www.howtographql.com/basics/3-big-picture/
+
+  ![alt text](https://i.imgur.com/168FvP4.png)
+
 ### How to run local
 
 Install package: `npm install`
