@@ -7,8 +7,12 @@ const { combineResolvers } = require('graphql-resolvers');
  * @param {*} args Input arguments for the mutation
  * @param {*} ctx Singleton per request context
  */
-const newUser = (_, args, ctx) => ctx.models.User.create(args, ctx);
+const user = (_, args, ctx) => ctx.models.User.create(args, ctx);
+const userUpdated = (_, args, ctx) => ctx.models.User.update(args, ctx);
+const userDeleted = (_, args, ctx) => ctx.models.User.s(args, ctx);
 
 module.exports = {
-  createNewUser: combineResolvers(newUser)
+  createUser: combineResolvers(user),
+  updateUser: combineResolvers(userUpdated),
+  deleteUser: combineResolvers(userDeleted)
 };

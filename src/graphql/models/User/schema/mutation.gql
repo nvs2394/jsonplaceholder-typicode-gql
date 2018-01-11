@@ -1,7 +1,9 @@
 module.exports = [`
 
   extend type Mutation {
-    createNewUser(input: CreateUserInput): User!
+    createUser(input: CreateUserInput): User!
+    updateUser(input: UpdateUserInput): User!
+    deleteUser(input: DeleteUserInput): User!
   }
 
 `];

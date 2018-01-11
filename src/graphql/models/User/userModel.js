@@ -28,6 +28,27 @@ class User {
       throw Error(error); 
     }
   }
+
+  static async update(args, ctx) {
+    try {
+      const { input } = args;
+      const { id: userId } = input;
+      const user = await HTTPConnector.put(`/users/${userId}`, input);
+      return new User(user);
+    } catch (error) {
+      throw Error(error); 
+    }
+  }
+
+  static async delete(args, ctx) {
+    try {
+      const { input } = args;
+      const user = await HTTPConnector.delete('/users', input);
+      return new User(user);
+    } catch (error) {
+      throw Error(error); 
+    }
+  }
 }
 
 module.exports = User;

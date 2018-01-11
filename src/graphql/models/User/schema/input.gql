@@ -8,6 +8,18 @@ module.exports = [`
     address: AddressTypeInput
   }
 
+  input UpdateUserInput {
+    id: String!
+    name: String
+    avatar: String
+    email: String!
+    address: AddressTypeInput
+  }
+
+  input DeleteUserInput {
+    id: String!
+  }
+
   input AddressTypeInput {
     street: String
     city: String

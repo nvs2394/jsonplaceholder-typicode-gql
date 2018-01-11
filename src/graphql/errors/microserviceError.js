@@ -1,0 +1,6 @@
+
+class MSErrorHelper {
+
+}
+
+exports
