@@ -9,10 +9,7 @@ const { combineResolvers } = require('graphql-resolvers');
  */
 const user = (_, args, ctx) => ctx.models.User.create(args, ctx);
 const userUpdated = (_, args, ctx) => ctx.models.User.update(args, ctx);
-const userDeleted = (_, args, ctx) => ctx.models.User.s(args, ctx);
-
 module.exports = {
   createUser: combineResolvers(user),
-  updateUser: combineResolvers(userUpdated),
-  deleteUser: combineResolvers(userDeleted)
+  updateUser: combineResolvers(userUpdated)
 };

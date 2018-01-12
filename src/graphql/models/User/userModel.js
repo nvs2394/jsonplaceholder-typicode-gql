@@ -12,7 +12,8 @@ class User {
 
   static async gen(args, ctx) {
     try {
-      const user = await HTTPConnector.get(`/users/${args.id}`);
+      const { id: userId } = args;
+      const user = await HTTPConnector.get(`/users/${userId}`);
       return new User(user);
     } catch (error) {
       throw Error(error); 
@@ -34,16 +35,6 @@ class User {
       const { input } = args;
       const { id: userId } = input;
       const user = await HTTPConnector.put(`/users/${userId}`, input);
-      return new User(user);
-    } catch (error) {
-      throw Error(error); 
-    }
-  }
-
-  static async delete(args, ctx) {
-    try {
-      const { input } = args;
-      const user = await HTTPConnector.delete('/users', input);
       return new User(user);
     } catch (error) {
       throw Error(error); 
